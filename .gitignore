@@ -1,0 +1,7 @@
+.cursor
+.venv
+.env
+build
+*.egg-info
+.ruff_cache
+**/__pycache__

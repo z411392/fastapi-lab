@@ -1,0 +1,38 @@
+[project]
+name = "fastapi-lab"
+version = "0.1.0"
+description = "FastAPI laboratory project with Supabase, Celery, and RabbitMQ"
+requires-python = ">=3.8,<3.9"
+
+dependencies = [
+    "fastapi>=0.110.0",
+    # "supabase>=2.3.0",
+    "celery>=5.3.6",
+    "uvicorn>=0.27.1",
+    "sqlalchemy>=2.0.39",
+    "asyncpg>=0.30.0",
+    "greenlet>=3.1.1",
+    "dependency-injector>=4.46.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-asyncio",
+    "pytest-testdox",
+    "pytest-dotenv",
+    "httpx",
+]
+
+[tool.pytest.ini_options]
+env_files = ".env"
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+addopts = [
+    "-s",
+    "--testdox",
+]
+testpaths = [
+    "tests",
+]
+pythonpath = ["./src"] # 不是改變當前工作目錄，而是將專案的根目錄添加到 Python 的模組搜索路徑中（告訴 Python 解釋器在哪裡查找模組）。
